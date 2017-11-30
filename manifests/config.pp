@@ -122,7 +122,7 @@ class rabbitmq_legacy::config {
     file { 'rabbitmqadmin.conf':
       ensure  => file,
       path    => '/etc/rabbitmq/rabbitmqadmin.conf',
-      content => template('rabbitmq/rabbitmqadmin.conf.erb'),
+      content => template('rabbitmq_legacy/rabbitmqadmin.conf.erb'),
       owner   => '0',
       group   => '0',
       mode    => '0644',
@@ -141,7 +141,7 @@ class rabbitmq_legacy::config {
           selinux_ignore_defaults => true,
         }
         -> file { '/etc/systemd/system/rabbitmq-server.service.d/limits.conf':
-          content => template('rabbitmq/rabbitmq-server.service.d/limits.conf'),
+          content => template('rabbitmq_legacy/rabbitmq-server.service.d/limits.conf'),
           owner   => '0',
           group   => '0',
           mode    => '0644',
@@ -155,7 +155,7 @@ class rabbitmq_legacy::config {
       }
       file { '/etc/default/rabbitmq-server':
         ensure  => file,
-        content => template('rabbitmq/default.erb'),
+        content => template('rabbitmq_legacy/default.erb'),
         mode    => '0644',
         owner   => '0',
         group   => '0',
@@ -172,7 +172,7 @@ class rabbitmq_legacy::config {
           selinux_ignore_defaults => true,
         }
         -> file { '/etc/systemd/system/rabbitmq-server.service.d/limits.conf':
-          content => template('rabbitmq/rabbitmq-server.service.d/limits.conf'),
+          content => template('rabbitmq_legacy/rabbitmq-server.service.d/limits.conf'),
           owner   => '0',
           group   => '0',
           mode    => '0644',
@@ -185,7 +185,7 @@ class rabbitmq_legacy::config {
         }
       }
       file { '/etc/security/limits.d/rabbitmq-server.conf':
-        content => template('rabbitmq/limits.conf'),
+        content => template('rabbitmq_legacy/limits.conf'),
         owner   => '0',
         group   => '0',
         mode    => '0644',

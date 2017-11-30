@@ -79,7 +79,7 @@ class rabbitmq_legacy::params {
   #config
   $cluster_node_type           = 'disc'
   $cluster_nodes               = []
-  $config                      = 'rabbitmq/rabbitmq.config.erb'
+  $config                      = 'rabbitmq_legacy/rabbitmq.config.erb'
   $config_cluster              = false
   $config_path                 = '/etc/rabbitmq/rabbitmq.config'
   $config_stomp                = false
@@ -88,7 +88,7 @@ class rabbitmq_legacy::params {
   $default_user                = 'guest'
   $default_pass                = 'guest'
   $delete_guest_user           = false
-  $env_config                  = 'rabbitmq/rabbitmq-env.conf.erb'
+  $env_config                  = 'rabbitmq_legacy/rabbitmq-env.conf.erb'
   $env_config_path             = '/etc/rabbitmq/rabbitmq-env.conf'
   $erlang_cookie               = undef
   $interface                   = 'UNSET'
