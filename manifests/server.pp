@@ -1,4 +1,4 @@
-# Class: rabbitmq::server
+# Class: rabbitmq_legacy::server
 #
 # This module manages the installation and config of the rabbitmq server
 #   it has only been tested on certain version of debian-ish systems
@@ -27,30 +27,30 @@
 # Sample Usage:
 #
 # This module is used as backward compability layer for modules
-# which require rabbitmq::server instead of rabbitmq class.
+# which require rabbitmq_legacy::server instead of rabbitmq class.
 # It's still common uasge in many modules.
 #
 #
 # [Remember: No empty lines between comments and class definition]
-class rabbitmq::server(
-  $port                     = $rabbitmq::params::port,
-  $delete_guest_user        = $rabbitmq::params::delete_guest_user,
-  $package_name             = $rabbitmq::params::package_name,
-  $version                  = $rabbitmq::params::version,
-  $service_name             = $rabbitmq::params::service_name,
-  $service_ensure           = $rabbitmq::params::service_ensure,
-  $service_manage           = $rabbitmq::params::service_manage,
-  $config_stomp             = $rabbitmq::params::config_stomp,
-  $stomp_port               = $rabbitmq::params::stomp_port,
-  $config_cluster           = $rabbitmq::params::config_cluster,
-  $cluster_nodes            = $rabbitmq::params::cluster_nodes,
-  $cluster_node_type        = $rabbitmq::params::cluster_node_type,
-  $node_ip_address          = $rabbitmq::params::node_ip_address,
-  $config                   = $rabbitmq::params::config,
-  $env_config               = $rabbitmq::params::env_config,
-  $erlang_cookie            = $rabbitmq::params::erlang_cookie,
-  $wipe_db_on_cookie_change = $rabbitmq::params::wipe_db_on_cookie_change,
-) inherits rabbitmq::params {
+class rabbitmq_legacy::server(
+  $port                     = $rabbitmq_legacy::params::port,
+  $delete_guest_user        = $rabbitmq_legacy::params::delete_guest_user,
+  $package_name             = $rabbitmq_legacy::params::package_name,
+  $version                  = $rabbitmq_legacy::params::version,
+  $service_name             = $rabbitmq_legacy::params::service_name,
+  $service_ensure           = $rabbitmq_legacy::params::service_ensure,
+  $service_manage           = $rabbitmq_legacy::params::service_manage,
+  $config_stomp             = $rabbitmq_legacy::params::config_stomp,
+  $stomp_port               = $rabbitmq_legacy::params::stomp_port,
+  $config_cluster           = $rabbitmq_legacy::params::config_cluster,
+  $cluster_nodes            = $rabbitmq_legacy::params::cluster_nodes,
+  $cluster_node_type        = $rabbitmq_legacy::params::cluster_node_type,
+  $node_ip_address          = $rabbitmq_legacy::params::node_ip_address,
+  $config                   = $rabbitmq_legacy::params::config,
+  $env_config               = $rabbitmq_legacy::params::env_config,
+  $erlang_cookie            = $rabbitmq_legacy::params::erlang_cookie,
+  $wipe_db_on_cookie_change = $rabbitmq_legacy::params::wipe_db_on_cookie_change,
+) inherits rabbitmq_legacy::params {
 
   anchor {'before::rabbimq::class':
     before => Class['rabbitmq'],

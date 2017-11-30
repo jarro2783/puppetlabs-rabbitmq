@@ -1,72 +1,72 @@
-# Class: rabbitmq::config
+# Class: rabbitmq_legacy::config
 # Sets all the configuration values for RabbitMQ and creates the directories for
 # config and ssl.
-class rabbitmq::config {
+class rabbitmq_legacy::config {
 
-  $admin_enable               = $rabbitmq::admin_enable
-  $cluster_node_type          = $rabbitmq::cluster_node_type
-  $cluster_nodes              = $rabbitmq::cluster_nodes
-  $config                     = $rabbitmq::config
-  $config_cluster             = $rabbitmq::config_cluster
-  $config_path                = $rabbitmq::config_path
-  $config_stomp               = $rabbitmq::config_stomp
-  $config_shovel              = $rabbitmq::config_shovel
-  $config_shovel_statics      = $rabbitmq::config_shovel_statics
-  $default_user               = $rabbitmq::default_user
-  $default_pass               = $rabbitmq::default_pass
-  $env_config                 = $rabbitmq::env_config
-  $env_config_path            = $rabbitmq::env_config_path
-  $erlang_cookie              = $rabbitmq::erlang_cookie
-  $interface                  = $rabbitmq::interface
-  $management_port            = $rabbitmq::management_port
-  $management_ssl             = $rabbitmq::management_ssl
-  $management_hostname        = $rabbitmq::management_hostname
-  $node_ip_address            = $rabbitmq::node_ip_address
-  $plugin_dir                 = $rabbitmq::plugin_dir
-  $rabbitmq_user              = $rabbitmq::rabbitmq_user
-  $rabbitmq_group             = $rabbitmq::rabbitmq_group
-  $rabbitmq_home              = $rabbitmq::rabbitmq_home
-  $port                       = $rabbitmq::port
-  $tcp_keepalive              = $rabbitmq::tcp_keepalive
-  $tcp_backlog                = $rabbitmq::tcp_backlog
-  $tcp_sndbuf                 = $rabbitmq::tcp_sndbuf
-  $tcp_recbuf                 = $rabbitmq::tcp_recbuf
-  $heartbeat                  = $rabbitmq::heartbeat
-  $service_name               = $rabbitmq::service_name
-  $ssl                        = $rabbitmq::ssl
-  $ssl_only                   = $rabbitmq::ssl_only
-  $ssl_cacert                 = $rabbitmq::ssl_cacert
-  $ssl_cert                   = $rabbitmq::ssl_cert
-  $ssl_key                    = $rabbitmq::ssl_key
-  $ssl_depth                  = $rabbitmq::ssl_depth
-  $ssl_cert_password          = $rabbitmq::ssl_cert_password
-  $ssl_port                   = $rabbitmq::ssl_port
-  $ssl_interface              = $rabbitmq::ssl_interface
-  $ssl_management_port        = $rabbitmq::ssl_management_port
-  $ssl_stomp_port             = $rabbitmq::ssl_stomp_port
-  $ssl_verify                 = $rabbitmq::ssl_verify
-  $ssl_fail_if_no_peer_cert   = $rabbitmq::ssl_fail_if_no_peer_cert
-  $ssl_versions               = $rabbitmq::ssl_versions
-  $ssl_ciphers                = $rabbitmq::ssl_ciphers
-  $stomp_port                 = $rabbitmq::stomp_port
-  $stomp_ssl_only             = $rabbitmq::stomp_ssl_only
-  $ldap_auth                  = $rabbitmq::ldap_auth
-  $ldap_server                = $rabbitmq::ldap_server
-  $ldap_user_dn_pattern       = $rabbitmq::ldap_user_dn_pattern
-  $ldap_other_bind            = $rabbitmq::ldap_other_bind
-  $ldap_use_ssl               = $rabbitmq::ldap_use_ssl
-  $ldap_port                  = $rabbitmq::ldap_port
-  $ldap_log                   = $rabbitmq::ldap_log
-  $ldap_config_variables      = $rabbitmq::ldap_config_variables
-  $wipe_db_on_cookie_change   = $rabbitmq::wipe_db_on_cookie_change
-  $config_variables           = $rabbitmq::config_variables
-  $config_kernel_variables    = $rabbitmq::config_kernel_variables
-  $config_management_variables = $rabbitmq::config_management_variables
-  $config_additional_variables = $rabbitmq::config_additional_variables
-  $auth_backends              = $rabbitmq::auth_backends
-  $cluster_partition_handling = $rabbitmq::cluster_partition_handling
-  $file_limit                 = $rabbitmq::file_limit
-  $collect_statistics_interval = $rabbitmq::collect_statistics_interval
+  $admin_enable               = $rabbitmq_legacy::admin_enable
+  $cluster_node_type          = $rabbitmq_legacy::cluster_node_type
+  $cluster_nodes              = $rabbitmq_legacy::cluster_nodes
+  $config                     = $rabbitmq_legacy::config
+  $config_cluster             = $rabbitmq_legacy::config_cluster
+  $config_path                = $rabbitmq_legacy::config_path
+  $config_stomp               = $rabbitmq_legacy::config_stomp
+  $config_shovel              = $rabbitmq_legacy::config_shovel
+  $config_shovel_statics      = $rabbitmq_legacy::config_shovel_statics
+  $default_user               = $rabbitmq_legacy::default_user
+  $default_pass               = $rabbitmq_legacy::default_pass
+  $env_config                 = $rabbitmq_legacy::env_config
+  $env_config_path            = $rabbitmq_legacy::env_config_path
+  $erlang_cookie              = $rabbitmq_legacy::erlang_cookie
+  $interface                  = $rabbitmq_legacy::interface
+  $management_port            = $rabbitmq_legacy::management_port
+  $management_ssl             = $rabbitmq_legacy::management_ssl
+  $management_hostname        = $rabbitmq_legacy::management_hostname
+  $node_ip_address            = $rabbitmq_legacy::node_ip_address
+  $plugin_dir                 = $rabbitmq_legacy::plugin_dir
+  $rabbitmq_user              = $rabbitmq_legacy::rabbitmq_user
+  $rabbitmq_group             = $rabbitmq_legacy::rabbitmq_group
+  $rabbitmq_home              = $rabbitmq_legacy::rabbitmq_home
+  $port                       = $rabbitmq_legacy::port
+  $tcp_keepalive              = $rabbitmq_legacy::tcp_keepalive
+  $tcp_backlog                = $rabbitmq_legacy::tcp_backlog
+  $tcp_sndbuf                 = $rabbitmq_legacy::tcp_sndbuf
+  $tcp_recbuf                 = $rabbitmq_legacy::tcp_recbuf
+  $heartbeat                  = $rabbitmq_legacy::heartbeat
+  $service_name               = $rabbitmq_legacy::service_name
+  $ssl                        = $rabbitmq_legacy::ssl
+  $ssl_only                   = $rabbitmq_legacy::ssl_only
+  $ssl_cacert                 = $rabbitmq_legacy::ssl_cacert
+  $ssl_cert                   = $rabbitmq_legacy::ssl_cert
+  $ssl_key                    = $rabbitmq_legacy::ssl_key
+  $ssl_depth                  = $rabbitmq_legacy::ssl_depth
+  $ssl_cert_password          = $rabbitmq_legacy::ssl_cert_password
+  $ssl_port                   = $rabbitmq_legacy::ssl_port
+  $ssl_interface              = $rabbitmq_legacy::ssl_interface
+  $ssl_management_port        = $rabbitmq_legacy::ssl_management_port
+  $ssl_stomp_port             = $rabbitmq_legacy::ssl_stomp_port
+  $ssl_verify                 = $rabbitmq_legacy::ssl_verify
+  $ssl_fail_if_no_peer_cert   = $rabbitmq_legacy::ssl_fail_if_no_peer_cert
+  $ssl_versions               = $rabbitmq_legacy::ssl_versions
+  $ssl_ciphers                = $rabbitmq_legacy::ssl_ciphers
+  $stomp_port                 = $rabbitmq_legacy::stomp_port
+  $stomp_ssl_only             = $rabbitmq_legacy::stomp_ssl_only
+  $ldap_auth                  = $rabbitmq_legacy::ldap_auth
+  $ldap_server                = $rabbitmq_legacy::ldap_server
+  $ldap_user_dn_pattern       = $rabbitmq_legacy::ldap_user_dn_pattern
+  $ldap_other_bind            = $rabbitmq_legacy::ldap_other_bind
+  $ldap_use_ssl               = $rabbitmq_legacy::ldap_use_ssl
+  $ldap_port                  = $rabbitmq_legacy::ldap_port
+  $ldap_log                   = $rabbitmq_legacy::ldap_log
+  $ldap_config_variables      = $rabbitmq_legacy::ldap_config_variables
+  $wipe_db_on_cookie_change   = $rabbitmq_legacy::wipe_db_on_cookie_change
+  $config_variables           = $rabbitmq_legacy::config_variables
+  $config_kernel_variables    = $rabbitmq_legacy::config_kernel_variables
+  $config_management_variables = $rabbitmq_legacy::config_management_variables
+  $config_additional_variables = $rabbitmq_legacy::config_additional_variables
+  $auth_backends              = $rabbitmq_legacy::auth_backends
+  $cluster_partition_handling = $rabbitmq_legacy::cluster_partition_handling
+  $file_limit                 = $rabbitmq_legacy::file_limit
+  $collect_statistics_interval = $rabbitmq_legacy::collect_statistics_interval
 
   if $ssl_only {
     $default_env_variables = {}
@@ -78,11 +78,11 @@ class rabbitmq::config {
   }
 
   # Handle env variables.
-  $environment_variables = merge($default_env_variables, $rabbitmq::environment_variables)
+  $environment_variables = merge($default_env_variables, $rabbitmq_legacy::environment_variables)
 
   # Get ranch (socket acceptor pool) availability,
   # use init class variable for that since version from the fact comes too late.
-  $ranch = versioncmp($rabbitmq::version, '3.6') >= 0
+  $ranch = versioncmp($rabbitmq_legacy::version, '3.6') >= 0
 
   file { '/etc/rabbitmq':
     ensure => directory,
@@ -105,7 +105,7 @@ class rabbitmq::config {
     owner   => '0',
     group   => '0',
     mode    => '0644',
-    notify  => Class['rabbitmq::service'],
+    notify  => Class['rabbitmq_legacy::service'],
   }
 
   file { 'rabbitmq-env.config':
@@ -115,7 +115,7 @@ class rabbitmq::config {
     owner   => '0',
     group   => '0',
     mode    => '0644',
-    notify  => Class['rabbitmq::service'],
+    notify  => Class['rabbitmq_legacy::service'],
   }
 
   if $admin_enable {
@@ -159,7 +159,7 @@ class rabbitmq::config {
         mode    => '0644',
         owner   => '0',
         group   => '0',
-        notify  => Class['rabbitmq::service'],
+        notify  => Class['rabbitmq_legacy::service'],
       }
     }
     'RedHat': {
@@ -207,7 +207,7 @@ class rabbitmq::config {
       rabbitmq_home  => $rabbitmq_home,
       service_name   => $service_name,
       before         => File['rabbitmq.config'],
-      notify         => Class['rabbitmq::service'],
+      notify         => Class['rabbitmq_legacy::service'],
     }
   }
 }

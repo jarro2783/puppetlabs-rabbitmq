@@ -1,8 +1,8 @@
-  # Class: rabbitmq::params
+  # Class: rabbitmq_legacy::params
 #
 #   The RabbitMQ Module configuration settings.
 #
-class rabbitmq::params {
+class rabbitmq_legacy::params {
 
   case $::osfamily {
     'Archlinux': {

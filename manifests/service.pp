@@ -1,4 +1,4 @@
-# Class: rabbitmq::service
+# Class: rabbitmq_legacy::service
 #
 #   This class manages the rabbitmq server service itself.
 #
@@ -10,10 +10,10 @@
 #
 # Sample Usage:
 #
-class rabbitmq::service(
-  Enum['running', 'stopped'] $service_ensure  = $rabbitmq::service_ensure,
-  Boolean $service_manage                     = $rabbitmq::service_manage,
-  $service_name                               = $rabbitmq::service_name,
+class rabbitmq_legacy::service(
+  Enum['running', 'stopped'] $service_ensure  = $rabbitmq_legacy::service_ensure,
+  Boolean $service_manage                     = $rabbitmq_legacy::service_manage,
+  $service_name                               = $rabbitmq_legacy::service_name,
 ) inherits rabbitmq {
 
   if ($service_manage) {

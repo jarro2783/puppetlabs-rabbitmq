@@ -1,7 +1,7 @@
 # requires
 #   puppetlabs-apt
 #   puppetlabs-stdlib
-class rabbitmq::repo::apt(
+class rabbitmq_legacy::repo::apt(
   $location     = 'http://www.rabbitmq.com/debian/',
   $release      = 'testing',
   $repos        = 'main',
@@ -12,14 +12,14 @@ class rabbitmq::repo::apt(
   $architecture = undef,
   ) {
 
-  $pin = $rabbitmq::package_apt_pin
+  $pin = $rabbitmq_legacy::package_apt_pin
 
   # ordering / ensure to get the last version of repository
-  Class['rabbitmq::repo::apt']
+  Class['rabbitmq_legacy::repo::apt']
   -> Class['apt::update']
   -> Package<| title == 'rabbitmq-server' |>
 
-  $ensure_source = $rabbitmq::repos_ensure ? {
+  $ensure_source = $rabbitmq_legacy::repos_ensure ? {
     false   => 'absent',
     default => 'present',
   }

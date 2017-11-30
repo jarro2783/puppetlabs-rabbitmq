@@ -1,12 +1,12 @@
-# Class: rabbitmq::repo::rhel
+# Class: rabbitmq_legacy::repo::rhel
 # Imports the gpg key if it doesn't already exist.
-class rabbitmq::repo::rhel {
+class rabbitmq_legacy::repo::rhel {
 
-  if $rabbitmq::repos_ensure {
+  if $rabbitmq_legacy::repos_ensure {
 
-    $package_gpg_key = $rabbitmq::package_gpg_key
+    $package_gpg_key = $rabbitmq_legacy::package_gpg_key
 
-    Class['rabbitmq::repo::rhel'] -> Package<| title == 'rabbitmq-server' |>
+    Class['rabbitmq_legacy::repo::rhel'] -> Package<| title == 'rabbitmq-server' |>
 
     exec { "rpm --import ${package_gpg_key}":
       path   => ['/bin','/usr/bin','/sbin','/usr/sbin'],

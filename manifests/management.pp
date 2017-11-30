@@ -1,7 +1,7 @@
 #
-class rabbitmq::management {
+class rabbitmq_legacy::management {
 
-  $delete_guest_user = $rabbitmq::delete_guest_user
+  $delete_guest_user = $rabbitmq_legacy::delete_guest_user
 
   if $delete_guest_user {
     rabbitmq_user{ 'guest':

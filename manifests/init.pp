@@ -1,85 +1,85 @@
 # Main rabbitmq class
-class rabbitmq(
-  Boolean $admin_enable                          = $rabbitmq::params::admin_enable,
-  Enum['ram', 'disk', 'disc'] $cluster_node_type = $rabbitmq::params::cluster_node_type,
-  Array $cluster_nodes                           = $rabbitmq::params::cluster_nodes,
-  String $config                                 = $rabbitmq::params::config,
-  Boolean $config_cluster                        = $rabbitmq::params::config_cluster,
-  Stdlib::Absolutepath $config_path              = $rabbitmq::params::config_path,
-  Boolean $config_stomp                          = $rabbitmq::params::config_stomp,
-  Boolean $config_shovel                         = $rabbitmq::params::config_shovel,
-  Hash $config_shovel_statics                    = $rabbitmq::params::config_shovel_statics,
-  String $default_user                           = $rabbitmq::params::default_user,
-  String $default_pass                           = $rabbitmq::params::default_pass,
-  Boolean $delete_guest_user                     = $rabbitmq::params::delete_guest_user,
-  String $env_config                             = $rabbitmq::params::env_config,
-  Stdlib::Absolutepath $env_config_path          = $rabbitmq::params::env_config_path,
-  Optional[String] $erlang_cookie                = $rabbitmq::params::erlang_cookie,
-  $interface                                     = $rabbitmq::params::interface,
-  $management_port                               = $rabbitmq::params::management_port,
-  $management_ssl                                = $rabbitmq::params::management_ssl,
-  Optional[String] $management_hostname          = $rabbitmq::params::management_hostname,
-  String $node_ip_address                        = $rabbitmq::params::node_ip_address,
-  $package_apt_pin                               = $rabbitmq::params::package_apt_pin,
-  String $package_ensure                         = $rabbitmq::params::package_ensure,
-  String $package_gpg_key                        = $rabbitmq::params::package_gpg_key,
-  String $package_name                           = $rabbitmq::params::package_name,
-  Optional[String] $package_provider             = $rabbitmq::params::package_provider,
+class rabbitmq_legacy(
+  Boolean $admin_enable                          = $rabbitmq_legacy::params::admin_enable,
+  Enum['ram', 'disk', 'disc'] $cluster_node_type = $rabbitmq_legacy::params::cluster_node_type,
+  Array $cluster_nodes                           = $rabbitmq_legacy::params::cluster_nodes,
+  String $config                                 = $rabbitmq_legacy::params::config,
+  Boolean $config_cluster                        = $rabbitmq_legacy::params::config_cluster,
+  Stdlib::Absolutepath $config_path              = $rabbitmq_legacy::params::config_path,
+  Boolean $config_stomp                          = $rabbitmq_legacy::params::config_stomp,
+  Boolean $config_shovel                         = $rabbitmq_legacy::params::config_shovel,
+  Hash $config_shovel_statics                    = $rabbitmq_legacy::params::config_shovel_statics,
+  String $default_user                           = $rabbitmq_legacy::params::default_user,
+  String $default_pass                           = $rabbitmq_legacy::params::default_pass,
+  Boolean $delete_guest_user                     = $rabbitmq_legacy::params::delete_guest_user,
+  String $env_config                             = $rabbitmq_legacy::params::env_config,
+  Stdlib::Absolutepath $env_config_path          = $rabbitmq_legacy::params::env_config_path,
+  Optional[String] $erlang_cookie                = $rabbitmq_legacy::params::erlang_cookie,
+  $interface                                     = $rabbitmq_legacy::params::interface,
+  $management_port                               = $rabbitmq_legacy::params::management_port,
+  $management_ssl                                = $rabbitmq_legacy::params::management_ssl,
+  Optional[String] $management_hostname          = $rabbitmq_legacy::params::management_hostname,
+  String $node_ip_address                        = $rabbitmq_legacy::params::node_ip_address,
+  $package_apt_pin                               = $rabbitmq_legacy::params::package_apt_pin,
+  String $package_ensure                         = $rabbitmq_legacy::params::package_ensure,
+  String $package_gpg_key                        = $rabbitmq_legacy::params::package_gpg_key,
+  String $package_name                           = $rabbitmq_legacy::params::package_name,
+  Optional[String] $package_provider             = $rabbitmq_legacy::params::package_provider,
   $package_source                                = undef,
-  Boolean $repos_ensure                          = $rabbitmq::params::repos_ensure,
-  $manage_repos                                  = $rabbitmq::params::manage_repos,
-  Stdlib::Absolutepath $plugin_dir               = $rabbitmq::params::plugin_dir,
-  $rabbitmq_user                                 = $rabbitmq::params::rabbitmq_user,
-  $rabbitmq_group                                = $rabbitmq::params::rabbitmq_group,
-  $rabbitmq_home                                 = $rabbitmq::params::rabbitmq_home,
-  $port                                          = $rabbitmq::params::port,
-  Boolean $tcp_keepalive                         = $rabbitmq::params::tcp_keepalive,
-  Integer $tcp_backlog                           = $rabbitmq::params::tcp_backlog,
-  Optional[Integer] $tcp_sndbuf                  = $rabbitmq::params::tcp_sndbuf,
-  Optional[Integer] $tcp_recbuf                  = $rabbitmq::params::tcp_recbuf,
-  Optional[Integer] $heartbeat                   = $rabbitmq::params::heartbeat,
-  Enum['running', 'stopped'] $service_ensure     = $rabbitmq::params::service_ensure,
-  Boolean $service_manage                        = $rabbitmq::params::service_manage,
-  String $service_name                           = $rabbitmq::params::service_name,
-  Boolean $ssl                                   = $rabbitmq::params::ssl,
-  Boolean $ssl_only                              = $rabbitmq::params::ssl_only,
-  String $ssl_cacert                             = $rabbitmq::params::ssl_cacert,
-  String $ssl_cert                               = $rabbitmq::params::ssl_cert,
-  String $ssl_key                                = $rabbitmq::params::ssl_key,
-  Optional[Integer] $ssl_depth                   = $rabbitmq::params::ssl_depth,
-  Optional[String] $ssl_cert_password            = $rabbitmq::params::ssl_cert_password,
-  $ssl_port                                      = $rabbitmq::params::ssl_port,
-  $ssl_interface                                 = $rabbitmq::params::ssl_interface,
-  $ssl_management_port                           = $rabbitmq::params::ssl_management_port,
-  $ssl_stomp_port                                = $rabbitmq::params::ssl_stomp_port,
-  $ssl_verify                                    = $rabbitmq::params::ssl_verify,
-  $ssl_fail_if_no_peer_cert                      = $rabbitmq::params::ssl_fail_if_no_peer_cert,
-  Optional[Array] $ssl_versions                  = $rabbitmq::params::ssl_versions,
-  Array $ssl_ciphers                             = $rabbitmq::params::ssl_ciphers,
-  Boolean $stomp_ensure                          = $rabbitmq::params::stomp_ensure,
-  Boolean $ldap_auth                             = $rabbitmq::params::ldap_auth,
-  String $ldap_server                            = $rabbitmq::params::ldap_server,
-  String $ldap_user_dn_pattern                   = $rabbitmq::params::ldap_user_dn_pattern,
-  String $ldap_other_bind                        = $rabbitmq::params::ldap_other_bind,
-  Boolean $ldap_use_ssl                          = $rabbitmq::params::ldap_use_ssl,
-  $ldap_port                                     = $rabbitmq::params::ldap_port,
-  Boolean $ldap_log                              = $rabbitmq::params::ldap_log,
-  Hash $ldap_config_variables                    = $rabbitmq::params::ldap_config_variables,
-  $stomp_port                                    = $rabbitmq::params::stomp_port,
-  Boolean $stomp_ssl_only                        = $rabbitmq::params::stomp_ssl_only,
-  $version                                       = $rabbitmq::params::version,
-  Boolean $wipe_db_on_cookie_change              = $rabbitmq::params::wipe_db_on_cookie_change,
-  $cluster_partition_handling                    = $rabbitmq::params::cluster_partition_handling,
-  $file_limit                                    = $rabbitmq::params::file_limit,
-  Hash $environment_variables                    = $rabbitmq::params::environment_variables,
-  Hash $config_variables                         = $rabbitmq::params::config_variables,
-  Hash $config_kernel_variables                  = $rabbitmq::params::config_kernel_variables,
-  Hash $config_management_variables              = $rabbitmq::params::config_management_variables,
-  Hash $config_additional_variables              = $rabbitmq::params::config_additional_variables,
-  Optional[Array] $auth_backends                 = $rabbitmq::params::auth_backends,
+  Boolean $repos_ensure                          = $rabbitmq_legacy::params::repos_ensure,
+  $manage_repos                                  = $rabbitmq_legacy::params::manage_repos,
+  Stdlib::Absolutepath $plugin_dir               = $rabbitmq_legacy::params::plugin_dir,
+  $rabbitmq_user                                 = $rabbitmq_legacy::params::rabbitmq_user,
+  $rabbitmq_group                                = $rabbitmq_legacy::params::rabbitmq_group,
+  $rabbitmq_home                                 = $rabbitmq_legacy::params::rabbitmq_home,
+  $port                                          = $rabbitmq_legacy::params::port,
+  Boolean $tcp_keepalive                         = $rabbitmq_legacy::params::tcp_keepalive,
+  Integer $tcp_backlog                           = $rabbitmq_legacy::params::tcp_backlog,
+  Optional[Integer] $tcp_sndbuf                  = $rabbitmq_legacy::params::tcp_sndbuf,
+  Optional[Integer] $tcp_recbuf                  = $rabbitmq_legacy::params::tcp_recbuf,
+  Optional[Integer] $heartbeat                   = $rabbitmq_legacy::params::heartbeat,
+  Enum['running', 'stopped'] $service_ensure     = $rabbitmq_legacy::params::service_ensure,
+  Boolean $service_manage                        = $rabbitmq_legacy::params::service_manage,
+  String $service_name                           = $rabbitmq_legacy::params::service_name,
+  Boolean $ssl                                   = $rabbitmq_legacy::params::ssl,
+  Boolean $ssl_only                              = $rabbitmq_legacy::params::ssl_only,
+  String $ssl_cacert                             = $rabbitmq_legacy::params::ssl_cacert,
+  String $ssl_cert                               = $rabbitmq_legacy::params::ssl_cert,
+  String $ssl_key                                = $rabbitmq_legacy::params::ssl_key,
+  Optional[Integer] $ssl_depth                   = $rabbitmq_legacy::params::ssl_depth,
+  Optional[String] $ssl_cert_password            = $rabbitmq_legacy::params::ssl_cert_password,
+  $ssl_port                                      = $rabbitmq_legacy::params::ssl_port,
+  $ssl_interface                                 = $rabbitmq_legacy::params::ssl_interface,
+  $ssl_management_port                           = $rabbitmq_legacy::params::ssl_management_port,
+  $ssl_stomp_port                                = $rabbitmq_legacy::params::ssl_stomp_port,
+  $ssl_verify                                    = $rabbitmq_legacy::params::ssl_verify,
+  $ssl_fail_if_no_peer_cert                      = $rabbitmq_legacy::params::ssl_fail_if_no_peer_cert,
+  Optional[Array] $ssl_versions                  = $rabbitmq_legacy::params::ssl_versions,
+  Array $ssl_ciphers                             = $rabbitmq_legacy::params::ssl_ciphers,
+  Boolean $stomp_ensure                          = $rabbitmq_legacy::params::stomp_ensure,
+  Boolean $ldap_auth                             = $rabbitmq_legacy::params::ldap_auth,
+  String $ldap_server                            = $rabbitmq_legacy::params::ldap_server,
+  String $ldap_user_dn_pattern                   = $rabbitmq_legacy::params::ldap_user_dn_pattern,
+  String $ldap_other_bind                        = $rabbitmq_legacy::params::ldap_other_bind,
+  Boolean $ldap_use_ssl                          = $rabbitmq_legacy::params::ldap_use_ssl,
+  $ldap_port                                     = $rabbitmq_legacy::params::ldap_port,
+  Boolean $ldap_log                              = $rabbitmq_legacy::params::ldap_log,
+  Hash $ldap_config_variables                    = $rabbitmq_legacy::params::ldap_config_variables,
+  $stomp_port                                    = $rabbitmq_legacy::params::stomp_port,
+  Boolean $stomp_ssl_only                        = $rabbitmq_legacy::params::stomp_ssl_only,
+  $version                                       = $rabbitmq_legacy::params::version,
+  Boolean $wipe_db_on_cookie_change              = $rabbitmq_legacy::params::wipe_db_on_cookie_change,
+  $cluster_partition_handling                    = $rabbitmq_legacy::params::cluster_partition_handling,
+  $file_limit                                    = $rabbitmq_legacy::params::file_limit,
+  Hash $environment_variables                    = $rabbitmq_legacy::params::environment_variables,
+  Hash $config_variables                         = $rabbitmq_legacy::params::config_variables,
+  Hash $config_kernel_variables                  = $rabbitmq_legacy::params::config_kernel_variables,
+  Hash $config_management_variables              = $rabbitmq_legacy::params::config_management_variables,
+  Hash $config_additional_variables              = $rabbitmq_legacy::params::config_additional_variables,
+  Optional[Array] $auth_backends                 = $rabbitmq_legacy::params::auth_backends,
   $key_content                                   = undef,
-  Optional[Integer] $collect_statistics_interval = $rabbitmq::params::collect_statistics_interval,
-) inherits rabbitmq::params {
+  Optional[Integer] $collect_statistics_interval = $rabbitmq_legacy::params::collect_statistics_interval,
+) inherits rabbitmq_legacy::params {
 
   # Validate install parameters.
   validate_re($package_apt_pin, '^(|\d+)$')
@@ -155,11 +155,11 @@ class rabbitmq(
   if $manage_repos != false {
     case $::osfamily {
       'RedHat', 'SUSE': {
-          include '::rabbitmq::repo::rhel'
+          include '::rabbitmq_legacy::repo::rhel'
           $package_require = undef
       }
       'Debian': {
-        class { '::rabbitmq::repo::apt' :
+        class { '::rabbitmq_legacy::repo::apt' :
           key_source  => $package_gpg_key,
           key_content => $key_content,
         }
@@ -173,54 +173,54 @@ class rabbitmq(
     $package_require = undef
   }
 
-  include '::rabbitmq::install'
-  include '::rabbitmq::config'
-  include '::rabbitmq::service'
-  include '::rabbitmq::management'
+  include '::rabbitmq_legacy::install'
+  include '::rabbitmq_legacy::config'
+  include '::rabbitmq_legacy::service'
+  include '::rabbitmq_legacy::management'
 
   if $admin_enable and $service_manage {
-    include '::rabbitmq::install::rabbitmqadmin'
+    include '::rabbitmq_legacy::install::rabbitmqadmin'
 
     rabbitmq_plugin { 'rabbitmq_management':
       ensure   => present,
-      require  => Class['rabbitmq::install'],
-      notify   => Class['rabbitmq::service'],
+      require  => Class['rabbitmq_legacy::install'],
+      notify   => Class['rabbitmq_legacy::service'],
       provider => 'rabbitmqplugins',
     }
 
-    Class['::rabbitmq::service'] -> Class['::rabbitmq::install::rabbitmqadmin']
-    Class['::rabbitmq::install::rabbitmqadmin'] -> Rabbitmq_exchange<| |>
+    Class['::rabbitmq_legacy::service'] -> Class['::rabbitmq_legacy::install::rabbitmqadmin']
+    Class['::rabbitmq_legacy::install::rabbitmqadmin'] -> Rabbitmq_exchange<| |>
   }
 
   if $stomp_ensure {
     rabbitmq_plugin { 'rabbitmq_stomp':
       ensure  => present,
-      require => Class['rabbitmq::install'],
-      notify  => Class['rabbitmq::service'],
+      require => Class['rabbitmq_legacy::install'],
+      notify  => Class['rabbitmq_legacy::service'],
     }
   }
 
   if ($ldap_auth) {
     rabbitmq_plugin { 'rabbitmq_auth_backend_ldap':
       ensure  => present,
-      require => Class['rabbitmq::install'],
-      notify  => Class['rabbitmq::service'],
+      require => Class['rabbitmq_legacy::install'],
+      notify  => Class['rabbitmq_legacy::service'],
     }
   }
 
   if ($config_shovel) {
     rabbitmq_plugin { 'rabbitmq_shovel':
       ensure   => present,
-      require  => Class['rabbitmq::install'],
-      notify   => Class['rabbitmq::service'],
+      require  => Class['rabbitmq_legacy::install'],
+      notify   => Class['rabbitmq_legacy::service'],
       provider => 'rabbitmqplugins',
     }
 
     if ($admin_enable) {
       rabbitmq_plugin { 'rabbitmq_shovel_management':
         ensure   => present,
-        require  => Class['rabbitmq::install'],
-        notify   => Class['rabbitmq::service'],
+        require  => Class['rabbitmq_legacy::install'],
+        notify   => Class['rabbitmq_legacy::service'],
         provider => 'rabbitmqplugins',
       }
     }
@@ -229,14 +229,14 @@ class rabbitmq(
   # Anchor this as per #8040 - this ensures that classes won't float off and
   # mess everything up.  You can read about this at:
   # http://docs.puppetlabs.com/puppet/2.7/reference/lang_containment.html#known-issues
-  anchor { 'rabbitmq::begin': }
-  anchor { 'rabbitmq::end': }
+  anchor { 'rabbitmq_legacy::begin': }
+  anchor { 'rabbitmq_legacy::end': }
 
-  Anchor['rabbitmq::begin'] -> Class['::rabbitmq::install']
-    -> Class['::rabbitmq::config'] ~> Class['::rabbitmq::service']
-    -> Class['::rabbitmq::management'] -> Anchor['rabbitmq::end']
+  Anchor['rabbitmq_legacy::begin'] -> Class['::rabbitmq_legacy::install']
+    -> Class['::rabbitmq_legacy::config'] ~> Class['::rabbitmq_legacy::service']
+    -> Class['::rabbitmq_legacy::management'] -> Anchor['rabbitmq_legacy::end']
 
   # Make sure the various providers have their requirements in place.
-  Class['::rabbitmq::install'] -> Rabbitmq_plugin<| |>
+  Class['::rabbitmq_legacy::install'] -> Rabbitmq_plugin<| |>
 
 }
