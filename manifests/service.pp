@@ -14,7 +14,7 @@ class rabbitmq_legacy::service(
   Enum['running', 'stopped'] $service_ensure  = $rabbitmq_legacy::service_ensure,
   Boolean $service_manage                     = $rabbitmq_legacy::service_manage,
   $service_name                               = $rabbitmq_legacy::service_name,
-) inherits rabbitmq {
+) inherits rabbitmq_legacy {
 
   if ($service_manage) {
     if $service_ensure == 'running' {
