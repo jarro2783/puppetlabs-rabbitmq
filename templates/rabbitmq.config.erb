@@ -77,9 +77,9 @@
                    <%- end -%>
                   ]},
 <%- end -%>
-<% if scope['rabbitmq::config_variables'] -%>
-<%- scope['rabbitmq::config_variables'].keys.sort.each do |key| -%>
-    {<%= key %>, <%= scope['rabbitmq::config_variables'][key] %>},
+<% if scope['rabbitmq_legacy::config_variables'] -%>
+<%- scope['rabbitmq_legacy::config_variables'].keys.sort.each do |key| -%>
+    {<%= key %>, <%= scope['rabbitmq_legacy::config_variables'][key] %>},
 <%- end -%>
 <%- end -%>
     {default_user, <<"<%= @default_user %>">>},
