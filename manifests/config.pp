@@ -149,7 +149,7 @@ class rabbitmq_legacy::config {
         }
         exec { 'rabbitmq-systemd-reload':
           command     => '/bin/systemctl daemon-reload',
-          notify      => Class['Rabbitmq::Service'],
+          notify      => Class['Rabbitmq_legacy::Service'],
           refreshonly => true,
         }
       }
@@ -180,7 +180,7 @@ class rabbitmq_legacy::config {
         }
         exec { 'rabbitmq-systemd-reload':
           command     => '/usr/bin/systemctl daemon-reload',
-          notify      => Class['Rabbitmq::Service'],
+          notify      => Class['Rabbitmq_legacy::Service'],
           refreshonly => true,
         }
       }
@@ -189,7 +189,7 @@ class rabbitmq_legacy::config {
         owner   => '0',
         group   => '0',
         mode    => '0644',
-        notify  => Class['Rabbitmq::Service'],
+        notify  => Class['Rabbitmq_legacy::Service'],
       }
     }
     default: {

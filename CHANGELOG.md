@@ -317,7 +317,7 @@ is now done through the main rabbitmq class.
 
 #### Incompatible Changes
 
-- Rabbitmq::server has been removed and is now rabbitmq::config.  You should
+- Rabbitmq_legacy::server has been removed and is now rabbitmq::config.  You should
 not use this class directly, only via the main rabbitmq class.
 
 ## 2013-04-11 2.1.0

@@ -193,7 +193,7 @@ describe 'rabbitmq' do
         'owner'   => '0',
         'group'   => '0',
         'mode'    => '0644',
-        'notify'  => 'Class[Rabbitmq::Service]',
+        'notify'  => 'Class[Rabbitmq_legacy::Service]',
         'content' => 'rabbitmq soft nofile unlimited
 rabbitmq hard nofile unlimited
 '
@@ -206,7 +206,7 @@ rabbitmq hard nofile unlimited
         'owner'   => '0',
         'group'   => '0',
         'mode'    => '0644',
-        'notify'  => 'Class[Rabbitmq::Service]',
+        'notify'  => 'Class[Rabbitmq_legacy::Service]',
         'content' => 'rabbitmq soft nofile infinity
 rabbitmq hard nofile infinity
 '
@@ -219,7 +219,7 @@ rabbitmq hard nofile infinity
         'owner'   => '0',
         'group'   => '0',
         'mode'    => '0644',
-        'notify'  => 'Class[Rabbitmq::Service]',
+        'notify'  => 'Class[Rabbitmq_legacy::Service]',
         'content' => 'rabbitmq soft nofile -1
 rabbitmq hard nofile -1
 '
@@ -232,7 +232,7 @@ rabbitmq hard nofile -1
         'owner'   => '0',
         'group'   => '0',
         'mode'    => '0644',
-        'notify'  => 'Class[Rabbitmq::Service]',
+        'notify'  => 'Class[Rabbitmq_legacy::Service]',
         'content' => 'rabbitmq soft nofile 1234
 rabbitmq hard nofile 1234
 '
@@ -339,7 +339,7 @@ rabbitmq hard nofile 1234
 
     it { should contain_exec('rabbitmq-systemd-reload').with(
       'command'     => '/usr/bin/systemctl daemon-reload',
-      'notify'      => 'Class[Rabbitmq::Service]',
+      'notify'      => 'Class[Rabbitmq_legacy::Service]',
       'refreshonly' => true
     ) }
     context 'with file_limit => \'unlimited\'' do
@@ -410,8 +410,8 @@ LimitNOFILE=1234
           it 'we enable the admin interface by default' do
             should contain_class('rabbitmq::install::rabbitmqadmin')
             should contain_rabbitmq_plugin('rabbitmq_management').with(
-              'require' => 'Class[Rabbitmq::Install]',
-              'notify'  => 'Class[Rabbitmq::Service]'
+              'require' => 'Class[Rabbitmq_legacy::Install]',
+              'notify'  => 'Class[Rabbitmq_legacy::Service]'
             )
             should contain_staging__file('rabbitmqadmin').with_source("http://guest:guest@1.1.1.1:15672/cli/rabbitmqadmin")
           end
@@ -421,8 +421,8 @@ LimitNOFILE=1234
           it 'we enable the admin interface by default' do
             should contain_class('rabbitmq::install::rabbitmqadmin')
             should contain_rabbitmq_plugin('rabbitmq_management').with(
-              'require' => 'Class[Rabbitmq::Install]',
-              'notify'  => 'Class[Rabbitmq::Service]'
+              'require' => 'Class[Rabbitmq_legacy::Install]',
+              'notify'  => 'Class[Rabbitmq_legacy::Service]'
             )
             should contain_staging__file('rabbitmqadmin').with_source("http://guest:guest@127.0.0.1:15672/cli/rabbitmqadmin")
           end
